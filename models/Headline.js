@@ -11,7 +11,7 @@ var headlineSchema = new Schema({
     headline: {
         type: String,
         required: true,
-        unique: true
+        // unique: true
     },
     // summary: {
     //     type: String,
