@@ -1,5 +1,5 @@
 // Require in database for fetching
-var db = require('../models/bob');
+var db = require('../models');
 
 // Pull in scraping function
 var scrape = require('../scripts/scrape');
