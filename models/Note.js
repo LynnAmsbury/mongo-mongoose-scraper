@@ -17,7 +17,7 @@ var noteSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  // as is the noteText
+  // As is the noteText
   noteText: String
 });
 

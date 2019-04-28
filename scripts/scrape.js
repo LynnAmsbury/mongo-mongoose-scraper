@@ -1,8 +1,8 @@
-// Require in dependencies
+// Requires in dependencies
 var axios = require('axios');
 var cheerio = require('cheerio');
 
-// 
+// Function to scrape new headlines from Westword
 module.exports = function() {
     return new Promise((resolve, reject) => {
         axios.get('https://www.westword.com/news')

@@ -19,8 +19,12 @@ module.exports = {
   },
   // Update the specified headline
   update: function(req, res) {
-    db.Headline.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then(function(dbHeadline) {
+    console.log(req.params.id);
+    // Look up and set saved to true
+    db.Headline.findOneAndUpdate({ _id: req.params.id }, { $set: req.body },
+       { new: true }).then(function(dbHeadline) {
       res.json(dbHeadline);
     });
+
   }
 };

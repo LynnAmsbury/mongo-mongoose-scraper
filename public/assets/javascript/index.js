@@ -1,7 +1,7 @@
-/* global bootbox */
+
 $(document).ready(function() {
-    // Setting a reference to the article-container div where all the dynamic content will go
-    // Adding event listeners to any dynamically generated "save article"
+    // Sets a reference to the article-container div where all the dynamic content will go
+    // Adds event listeners to any dynamically generated "save article"
     // and "scrape new article" buttons
     var articleContainer = $(".article-container");
     $(document).on("click", ".btn.save", handleArticleSave);
@@ -9,14 +9,14 @@ $(document).ready(function() {
     $(".clear").on("click", handleArticleClear);
   
     function initPage() {
-      // Run an AJAX request for any unsaved headlines
+      // Runs an AJAX request for any unsaved headlines
       $.get("/api/headlines?saved=false").then(function(data) {
         articleContainer.empty();
-        // If we have headlines, render them to the page
+        // Renders headlines to the page if present
         if (data && data.length) {
           renderArticles(data);
         } else {
-          // Otherwise render a message explaining we have no articles
+          // Otherwise, renders a message explaining we have no articles
           renderEmpty();
         }
       });
@@ -24,15 +24,15 @@ $(document).ready(function() {
   
     function renderArticles(articles) {
       // This function handles appending HTML containing our article data to the page
-      // We are passed an array of JSON containing all available articles in our database
+      // Passes an array of JSON containing all available articles in our database
       var articleCards = [];
-      // We pass each article JSON object to the createCard function which returns a bootstrap
-      // card with our article data inside
+      // Passes each article JSON object to the createCard function which returns a bootstrap
+      // card with the article data inside
       for (var i = 0; i < articles.length; i++) {
         articleCards.push(createCard(articles[i]));
       }
-      // Once we have all of the HTML for the articles stored in our articleCards array,
-      // append them to the articleCards container
+      // Once all of the HTML for the articles is stored in our articleCards array,
+      // appends them to the articleCards container
       articleContainer.append(articleCards);
     }
   
@@ -53,16 +53,16 @@ $(document).ready(function() {
       var cardBody = $("<div class='card-body'>").text(article.summary);
   
       card.append(cardHeader, cardBody);
-      // We attach the article's id to the jQuery element
-      // We will use this when trying to figure out which article the user wants to save
+      // Attaches the article's id to the jQuery element
+      // Used when trying to figure out which article the user wants to save
       card.data("_id", article._id);
-      // We return the constructed card jQuery element
+      // Returns the constructed card jQuery element
       return card;
     }
   
     function renderEmpty() {
-      // This function renders some HTML to the page explaining we don't have any articles to view
-      // Using a joined array of HTML string data because it's easier to read/change than a concatenated string
+      // This function renders some HTML to the page explaining that there aren't any articles to view
+      // It uses a joined array of HTML string data because it's easier to read/change than a concatenated string
       var emptyAlert = $(
         [
           "<div class='alert alert-warning text-center'>",
@@ -79,7 +79,7 @@ $(document).ready(function() {
           "</div>"
         ].join("")
       );
-      // Appending this data to the page
+      // Appends this data to the page
       articleContainer.append(emptyAlert);
     }
   
@@ -90,14 +90,14 @@ $(document).ready(function() {
       var articleToSave = $(this)
         .parents(".card")
         .data();
-  
-      // Remove card from page
+      console.log(articleToSave);
+      // Removes card from the page
       $(this)
         .parents(".card")
         .remove();
   
       articleToSave.saved = true;
-      // Using a patch method to be semantic since this is an update to an existing record in our collection
+      // Uses a patch method to be semantic because this is an update to an existing record in our collection
       $.ajax({
         method: "PUT",
         url: "/api/headlines/" + articleToSave._id,
@@ -115,9 +115,9 @@ $(document).ready(function() {
       console.log('Scraping...');
       // This function handles the user clicking any "scrape new article" buttons
       $.get("/api/fetch").then(function(data) {
-        // If we are able to successfully scrape the NYTIMES and compare the articles to those
-        // already in our collection, re render the articles on the page
-        // and let the user know how many unique articles we were able to save
+        // Lets user know if Westword was successfully scraped and compares the articles to those
+        // already in the collection, re-renders the articles on the page,
+        // and lets the user know how many unique articles were saved
         initPage();
         bootbox.alert($("<h3 class='text-center m-top-80'>").text(data.message));
       });

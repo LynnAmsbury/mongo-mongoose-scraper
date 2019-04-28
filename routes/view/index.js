@@ -1,3 +1,4 @@
+// Require in dependencies
 var router = require("express").Router();
 var db = require("../../models");
 
@@ -6,11 +7,8 @@ router.get("/", function(req, res) {
   console.log("GETTING");
 
   res.render("home", 
-    {body: "WHAT"},
+    {thing: "WHAT"},
     function(err, html) {
-      console.log("HERE I AM");
-      console.log(err);
-      console.log("page: " + html);
       res.send(html); //blank page
       // res.send("hiya"); //works if we didn't already send something
     });
@@ -27,15 +25,25 @@ router.get("/", function(req, res) {
     */
 });
 
+router.get("/news/*", function(req, res) {
+  console.log(req.params[0]);
+  console.log("HI");
+
+
+  res.send("Requesting: " + req.params[0] );
+});
+
 // This route renders the saved handlebars page
 router.get("/saved", function(req, res) {
-  /*
+  
   db.Headline.find({ saved: true })
     .sort({ date: -1 })
     .then(function(dbArticles) {
       res.render("saved", { articles: dbArticles });
     });
-    */
+    
+
+  //res.send("How do i do it?");
 });
 
 module.exports = router;
