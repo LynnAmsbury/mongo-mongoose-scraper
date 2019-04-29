@@ -19,7 +19,7 @@ Click **Clear Articles** to clear out articles.
 
 ![Clearing News Scraper Articles](public/assets/gifs/clearing-articles.gif)
 
-Scraped articles may be saved if desired.
+Scraped articles may be saved if desired. Clicking on the article title takes the user to the location of the article at Westword.com.
 
 ![Saving an Article](public/assets/gifs/saving-article.gif)
 
