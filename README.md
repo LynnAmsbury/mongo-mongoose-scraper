@@ -27,14 +27,6 @@ Saved articles may be deleted when desired.
 
 ![Deleting Saved Articles](public/assets/gifs/deleting-saved-article.gif)
 
-Add comments by clicking the **Notes** button on saved articles. Validation is in place to prevent blank fields.
+Add comments by clicking the **Notes** button on saved articles. Delete notes by clicking the red **X** button.
 
-![Comment Validation](./images/validation.png)
-
-![Comment Added](./images/commented.png)
-
-Delete comments upon confirmation.
-
-![Confirm Comment Delete](./images/confirm-delete.png)
-
-Additionally, articles can be added to and removed from the favorites section.
+![Use of Notes](public/assets/gifs/note-management.gif)
