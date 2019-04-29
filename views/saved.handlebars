@@ -35,12 +35,13 @@
 </div>
 <div class="container-fluid article-container">
   {{#each articles}}
-    <div data-_id={{this._id}} class="card">
+  
+    <div data-_id={{this._id}} data-_article_name="{{this.headline}}" class="card">
       <div class="card-header">
         <h3>
           <a class="article-link" target="_blank" rel="noopener noreferrer" href="{{this.url}}">{{this.headline}}</a>
-          <a class="btn btn-danger delete">Delete From Saved</a>
-          <a class="btn btn-info notes">Article Notes</a>
+          <a class="btn btn-danger delete">Delete</a>
+          <a class="btn btn-info notes">Notes</a>
         </h3>
       </div>
       <div class="card-body">{{this.summary}}</div>

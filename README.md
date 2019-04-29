@@ -17,9 +17,17 @@ Click **Scrape New Articles** button to retrieve the current Westword headlines.
 
 Click **Clear Articles** to clear out articles.
 
-![Clearing News Scraper Articles](public/assets)
+![Clearing News Scraper Articles](public/assets/gifs/clearing-articles.gif)
 
-Add comments. Validation is in place to prevent blank fields.
+Scraped articles may be saved if desired.
+
+![Saving an Article](public/assets/gifs/saving-article.gif)
+
+Saved articles may be deleted when desired.
+
+![Deleting Saved Articles](public/assets/gifs/deleting-saved-article.gif)
+
+Add comments by clicking the **Notes** button on saved articles. Validation is in place to prevent blank fields.
 
 ![Comment Validation](./images/validation.png)
 

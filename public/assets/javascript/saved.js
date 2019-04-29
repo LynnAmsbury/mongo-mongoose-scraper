@@ -48,8 +48,8 @@ $(document).ready(function() {
           $("<a class='article-link' target='_blank' rel='noopener noreferrer'>")
             .attr("href", article.url)
             .text(article.headline),
-          $("<a class='btn btn-danger delete'>Delete From Saved</a>"),
-          $("<a class='btn btn-info notes'>Article Notes</a>")
+          $("<a class='btn btn-danger delete'>Delete</a>"),
+          $("<a class='btn btn-info notes'>Notes</a>")
         )
       );
   
@@ -69,7 +69,7 @@ $(document).ready(function() {
       var emptyAlert = $(
         [
           "<div class='alert alert-warning text-center'>",
-          "<h4>Uh Oh. Looks like we don't have any saved articles.</h4>",
+          "<h4>No saved articles at this time.</h4>",
           "</div>",
           "<div class='card'>",
           "<div class='card-header text-center'>",
@@ -137,14 +137,17 @@ $(document).ready(function() {
     function handleArticleNotes(event) {
       // This function handles opening the notes modal and displaying our notes
       // Grabs the id of the article to get notes for from the card element the delete button sits inside
+      console.log(event);
       var currentArticle = $(this)
         .parents(".card")
         .data();
       // Grab any notes with this headline/article id
       $.get("/api/notes/" + currentArticle._id).then(function(data) {
+        console.log(currentArticle);
+        console.log(data);
         // Constructing our initial HTML to add to the notes modal
         var modalText = $("<div class='container-fluid text-center'>").append(
-          $("<h4>").text("Notes For Article: " + currentArticle._id),
+          $("<h4>").text("Notes For Article: " + currentArticle._article_name),
           $("<hr>"),
           $("<ul class='list-group note-container'>"),
           $("<textarea placeholder='New Note' rows='4' cols='60'>"),

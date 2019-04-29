@@ -26,24 +26,21 @@ router.get("/", function(req, res) {
 });
 
 router.get("/news/*", function(req, res) {
-  console.log(req.params[0]);
-  console.log("HI");
 
+  let news_url = 'https://www.westword.com/news/' + req.params[0];
+  res.send("<meta http-equiv=\"refresh\" content=\"0; URL='"+news_url+"'\" />");
 
-  res.send("Requesting: " + req.params[0] );
 });
 
 // This route renders the saved handlebars page
 router.get("/saved", function(req, res) {
-  
+  console.log(req);
   db.Headline.find({ saved: true })
     .sort({ date: -1 })
     .then(function(dbArticles) {
-      res.render("saved", { articles: dbArticles });
+      console.log(dbArticles);
+      res.render("saved", { articles: dbArticles, headline:req.headline });
     });
-    
-
-  //res.send("How do i do it?");
 });
 
 module.exports = router;

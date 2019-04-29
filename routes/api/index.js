@@ -7,7 +7,7 @@ var clearRoutes = require('./clear');
 
 // Set up middleware; these routes all start with '/api'
 router.use('/fetch', fetchRoutes);
-router.use('/note', noteRoutes);
+router.use('/notes', noteRoutes);
 router.use('/headlines', headlinesRoutes);
 router.use('/clear', clearRoutes);
 
