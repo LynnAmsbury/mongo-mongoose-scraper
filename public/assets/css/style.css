@@ -43,7 +43,7 @@ html {
   }
   
   .jumbotron .background-image {
-    background-image: url("../images/Westword-Logo.png");
+    background-image: url("../images/westword-logo.png");
     /* background-size: cover; */
     background-size: contain;
   background-repeat: no-repeat;

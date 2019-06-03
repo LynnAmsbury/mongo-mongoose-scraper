@@ -12,17 +12,6 @@ router.get("/", function(req, res) {
       res.send(html); //blank page
       // res.send("hiya"); //works if we didn't already send something
     });
-    
-  /*
-  db.Headline.find({ saved: false })
-    .sort({ date: -1 })
-    .then(function(dbArticles) {
-      console.log("ARTICLES: " + dbArticles);
-      //res.render("home", { articles: dbArticles });
-      //res.render("home", {title:"HI", body:"what?"});
-      res.render("home");
-    });
-    */
 });
 
 router.get("/news/*", function(req, res) {

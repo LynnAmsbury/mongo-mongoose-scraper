@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 
 // Set up the port to be either the host's designated port or 8080
-var PORT = process.env.PORT || 8081;
+var PORT = process.env.PORT || 8080;
 
 // Instantiate the Express App
 var app = express();
