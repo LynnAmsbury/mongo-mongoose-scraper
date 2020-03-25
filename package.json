@@ -23,6 +23,7 @@
     "express-handlebars": "^3.0.2",
     "handlebars": "^4.5.3",
     "lodash": "^4.17.14",
+    "minimist": "^1.2.5",
     "mongoose": "^5.7.5",
     "nodemon": "^1.18.11"
   }
